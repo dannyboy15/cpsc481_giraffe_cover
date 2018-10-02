@@ -50,11 +50,20 @@
       (if (>= l_x min)
         (setq moves (cons (list l_x _y) moves)))
       (if (<= r_x max)
-        (setq moves (cons (list r_x _y) moves)))))
+        (setq moves (cons (list r_x _y) moves))))))
 
-  (print moves)
+(defun list_filter (list1 list2)
+  "Remove items from list2 that are in list1"
+  (setq listt list2)
+  (loop for x in list1
+    do (setq listt (remove x listt :test 'equal)))
+  listt)
 
 
-)
-
-(get_moves 3 3)
+; Test
+; (get_moves 3 3)
+(print "original list")
+(setq moves (get_moves 3 3))
+(print moves)
+(print "remove ((2 1) (4 5) (2 5))")
+(print (list_filter '((2 1) (4 5) (2 5)) moves))
