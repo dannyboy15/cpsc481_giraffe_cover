@@ -50,7 +50,9 @@
       (if (>= l_x min)
         (setq moves (cons (list l_x _y) moves)))
       (if (<= r_x max)
-        (setq moves (cons (list r_x _y) moves))))))
+        (setq moves (cons (list r_x _y) moves)))))
+  moves)
+
 
 (defun list_filter (list1 list2)
   "Remove items from list2 that are in list1"
